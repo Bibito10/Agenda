@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.modelo.model.Aluno;
 
-public interface CrudRepository extends org.springframework.data.repository.CrudRepository<Aluno, Long> {
+public interface CrudRepository extends JpaRepository<Aluno, Long>{
 
 }

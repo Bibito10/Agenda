@@ -20,8 +20,8 @@
   <div>
   
   </div>
-  
-<form class="form-inline" method="post" action="/cadastro">
+  <h1>Agenda de Alunos</h1>
+<form class="form-inline" method="GET" action="/cadastro">
   <div class="form-group mx-sm-3 mb-2">
     <input type="text" name="nome" id="inputPassword2" class="form-control" value="" placeholder="Nome">
         <input type="email" name="email" id="inputPassword2" class="form-control" value="" placeholder="Email">
@@ -43,8 +43,8 @@
   	<tr th:each="p : ${produto}">
   		
   		<td th:text="${p.nome}"></td> 
-  				<td th:text="${p.numero}"></td> 
-  						<td th:text="${p.email}"></td>  	
+  	    <td th:text="${p.numero}"></td> 
+  	    <td th:text="${p.email}"></td>  	
   		<td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${p.id})}">Excluir</a></td>	
   		<td><a class="btn btn-info"th:href="@{/editar/{id}(id=${p.id})}">Editar</a></td>
   	</tr>

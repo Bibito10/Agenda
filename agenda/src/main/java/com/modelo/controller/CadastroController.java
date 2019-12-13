@@ -16,7 +16,7 @@ import com.modelo.model.Aluno;
 @Controller
 public class CadastroController {
 	@Autowired
-	CrudRepository crudRepository;
+	com.modelo.repository.CrudRepository crudRepository;
 	
 	
 	@GetMapping("/")
@@ -26,7 +26,7 @@ public class CadastroController {
 	}
 	
 	
-	@PostMapping("/cadastro")
+	@GetMapping("/cadastro")
 	public String salvar(Aluno produto) {
 		crudRepository.save(produto);
 		return "redirect:/";
@@ -38,6 +38,12 @@ public class CadastroController {
 		return "redirect:/";
 		
 	}
+	  @GetMapping("/editar/{id}")
+	     public String editar(@PathVariable("id") Long id,  Model model) {
+	        model.addAttribute("dados", crudRepository.findById(id));
+	     	return "editar";
+	      }
+
 	
 	
 	
@@ -48,11 +54,6 @@ public class CadastroController {
 	
 	
 	
-	/*
-	@GetMapping("/delete/{id}")
-	public String delete(@PathVariable("id") Long id) {
-		System.out.print("ID" + id);
-		return "/cadastro";	
-	}*/
+
 
 }
